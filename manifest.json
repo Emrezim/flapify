@@ -1,0 +1,18 @@
+{
+  "name": "Flapify",
+  "short_name": "Flapify",
+  "description": "Kendi fotografinla uc! Eglenceli Flappy Bird tarzinda oyun.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "lang": "tr",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    { "src": "icon.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "prefer_related_applications": false
+}

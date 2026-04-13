@@ -1,0 +1,7 @@
+.vscode/
+.claude/
+node_modules/
+*.log
+_*.txt
+fix.ps1
+Yeni klasör/
