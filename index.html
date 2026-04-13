@@ -499,15 +499,24 @@ document.getElementById('btn-start').addEventListener('click',startGame);
 const canvas=document.getElementById('game-canvas'),ctx=canvas.getContext('2d');
 
 function resize(){
-  const aspect=2/3;
   const vw=window.innerWidth,vh=window.innerHeight;
-  if(vh/vw > aspect){CW=vw;CH=vw/aspect;}else{CH=vh;CW=vh*aspect;}
-  // internal resolution
+  const isMobile = vw < 780;
+  if(isMobile){
+    // Mobilde tum ekrani doldur
+    CW=vw; CH=vh;
+  } else {
+    // Masaustunde portre kutu (max 500x750)
+    CH = Math.min(vh-20, 780);
+    CW = Math.min(vw-20, CH*2/3);
+    CH = CW*3/2;
+  }
   const dpr=Math.min(window.devicePixelRatio||1,2);
   W=Math.round(CW*dpr);H=Math.round(CH*dpr);
   canvas.width=W;canvas.height=H;
   canvas.style.width=CW+'px';canvas.style.height=CH+'px';
-  scale=W/400;
+  scale=Math.min(W,H)/400;
+  // bird pozisyonunu ekrana sigdir
+  if(typeof bird!=='undefined'&&bird){bird.x=W*.22; if(bird.y>H-GROUND_H*scale)bird.y=H/2;}
 }
 window.addEventListener('resize',resize);
 resize();
